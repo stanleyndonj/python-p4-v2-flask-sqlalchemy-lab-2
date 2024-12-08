@@ -19,7 +19,7 @@ class Customer(db.Model, SerializerMixin):
 
     
     reviews = db.relationship('Review', back_populates='customer', cascade='all, delete-orphan')
-    # Association proxy to get items through reviews
+    
     items = association_proxy('reviews', 'item')
 
     
