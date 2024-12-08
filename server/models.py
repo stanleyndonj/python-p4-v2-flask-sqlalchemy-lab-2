@@ -22,7 +22,7 @@ class Customer(db.Model, SerializerMixin):
     # Association proxy to get items through reviews
     items = association_proxy('reviews', 'item')
 
-    # Prevent recursion in serialization
+    
     serialize_rules = ('-reviews.customer',)
 
     def __repr__(self):
