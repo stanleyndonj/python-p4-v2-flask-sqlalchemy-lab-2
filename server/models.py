@@ -17,7 +17,7 @@ class Customer(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
 
-    # Relationship - one to many with Review
+    
     reviews = db.relationship('Review', back_populates='customer', cascade='all, delete-orphan')
     # Association proxy to get items through reviews
     items = association_proxy('reviews', 'item')
