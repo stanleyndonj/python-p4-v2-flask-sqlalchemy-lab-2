@@ -35,8 +35,7 @@ class Item(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     price = db.Column(db.Float)
-
-    # Relationship - one to many with Review
+    
     reviews = db.relationship('Review', back_populates='item', cascade='all, delete-orphan')
 
     # Prevent recursion in serialization
