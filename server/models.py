@@ -35,10 +35,9 @@ class Item(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     price = db.Column(db.Float)
-    
+
     reviews = db.relationship('Review', back_populates='item', cascade='all, delete-orphan')
 
-    # Prevent recursion in serialization
     serialize_rules = ('-reviews.item',)
 
     def __repr__(self):
